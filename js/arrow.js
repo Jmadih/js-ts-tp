@@ -29,4 +29,6 @@ var skill = {
     }
 }
 skill.getVersions();
-console.log(skill.versions);
+
+
+
