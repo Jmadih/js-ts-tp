@@ -6,27 +6,25 @@ enum TYPEOFCONTRACT {
 interface contract {
     name: string;
     type: TYPEOFCONTRACT;
-    setName(name: string): void;
-    setType(type: TYPEOFCONTRACT): void;
     buildContract(name: string, type: TYPEOFCONTRACT): string;
 }
 
 
 class proposal implements contract{
-    name;
-    type;
+   private _name;
+   private _type;
 
     constructor(name, type){
-        this.name = name;
-        this.type = type;
+        this._name = name;
+        this._type = type;
     }
 
-    setName(nname: string): void {
+    set name(nname: string) {
         this.name = nname;
     }
 
-    setType(type: TYPEOFCONTRACT): void{
-        this.type = type;
+    set type (type: TYPEOFCONTRACT){
+        this._type = type;
     }
 
     buildContract(name: string, type?: TYPEOFCONTRACT) : string{

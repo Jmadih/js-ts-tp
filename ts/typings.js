@@ -3,28 +3,27 @@ var TYPEOFCONTRACT;
     TYPEOFCONTRACT["CDD"] = "CDD";
     TYPEOFCONTRACT["CDI"] = "CDI";
 })(TYPEOFCONTRACT || (TYPEOFCONTRACT = {}));
-var proposal = /** @class */ (function () {
-    function proposal(name, type) {
-        this.name = name;
-        this.type = type;
+class proposal {
+    constructor(name, type) {
+        this._name = name;
+        this._type = type;
     }
-    proposal.prototype.setName = function (nname) {
+    set name(nname) {
         this.name = nname;
-    };
-    proposal.prototype.setType = function (type) {
-        this.type = type;
-    };
-    proposal.prototype.buildContract = function (name, type) {
+    }
+    set type(type) {
+        this._type = type;
+    }
+    buildContract(name, type) {
         if (type) {
             return 'Contract ' + type + ' of ' + name;
         }
         return name + ' with no type defined';
-    };
-    return proposal;
-}());
-var newproposal = new proposal("DEV", TYPEOFCONTRACT.CDD);
+    }
+}
+const newproposal = new proposal("DEV", TYPEOFCONTRACT.CDD);
 console.log(newproposal);
-var contract1 = newproposal.buildContract('NG', TYPEOFCONTRACT.CDI);
+const contract1 = newproposal.buildContract('NG', TYPEOFCONTRACT.CDI);
 console.log(contract1);
-var contract2 = newproposal.buildContract('PHP');
+const contract2 = newproposal.buildContract('PHP');
 console.log(contract2);
